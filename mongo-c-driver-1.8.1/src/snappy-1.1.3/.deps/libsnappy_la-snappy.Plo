@@ -1,0 +1,459 @@
+src/snappy-1.1.3/libsnappy_la-snappy.lo: src/snappy-1.1.3/snappy.cc \
+ /usr/include/stdc-predef.h src/snappy-1.1.3/snappy.h \
+ /usr/lib/gcc/i586-poky-linux/4.9.1/include/stddef.h \
+ /usr/include/c++/4.9.1/string \
+ /usr/include/c++/4.9.1/i586-poky-linux/bits/c++config.h \
+ /usr/include/c++/4.9.1/i586-poky-linux/bits/os_defines.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-32.h \
+ /usr/include/c++/4.9.1/i586-poky-linux/bits/cpu_defines.h \
+ /usr/include/c++/4.9.1/bits/stringfwd.h \
+ /usr/include/c++/4.9.1/bits/memoryfwd.h \
+ /usr/include/c++/4.9.1/bits/char_traits.h \
+ /usr/include/c++/4.9.1/bits/stl_algobase.h \
+ /usr/include/c++/4.9.1/bits/functexcept.h \
+ /usr/include/c++/4.9.1/bits/exception_defines.h \
+ /usr/include/c++/4.9.1/bits/cpp_type_traits.h \
+ /usr/include/c++/4.9.1/ext/type_traits.h \
+ /usr/include/c++/4.9.1/ext/numeric_traits.h \
+ /usr/include/c++/4.9.1/bits/stl_pair.h \
+ /usr/include/c++/4.9.1/bits/move.h \
+ /usr/include/c++/4.9.1/bits/concept_check.h \
+ /usr/include/c++/4.9.1/bits/stl_iterator_base_types.h \
+ /usr/include/c++/4.9.1/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/4.9.1/debug/debug.h \
+ /usr/include/c++/4.9.1/bits/stl_iterator.h \
+ /usr/include/c++/4.9.1/bits/ptr_traits.h \
+ /usr/include/c++/4.9.1/bits/predefined_ops.h \
+ /usr/include/c++/4.9.1/bits/postypes.h /usr/include/c++/4.9.1/cwchar \
+ /usr/include/wchar.h /usr/include/stdio.h \
+ /usr/lib/gcc/i586-poky-linux/4.9.1/include/stdarg.h \
+ /usr/include/bits/wchar.h /usr/include/xlocale.h \
+ /usr/include/c++/4.9.1/bits/allocator.h \
+ /usr/include/c++/4.9.1/i586-poky-linux/bits/c++allocator.h \
+ /usr/include/c++/4.9.1/ext/new_allocator.h /usr/include/c++/4.9.1/new \
+ /usr/include/c++/4.9.1/exception \
+ /usr/include/c++/4.9.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/4.9.1/bits/localefwd.h \
+ /usr/include/c++/4.9.1/i586-poky-linux/bits/c++locale.h \
+ /usr/include/c++/4.9.1/clocale /usr/include/locale.h \
+ /usr/include/bits/locale.h /usr/include/c++/4.9.1/iosfwd \
+ /usr/include/c++/4.9.1/cctype /usr/include/ctype.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h \
+ /usr/include/c++/4.9.1/bits/ostream_insert.h \
+ /usr/include/c++/4.9.1/bits/cxxabi_forced.h \
+ /usr/include/c++/4.9.1/bits/stl_function.h \
+ /usr/include/c++/4.9.1/backward/binders.h \
+ /usr/include/c++/4.9.1/bits/range_access.h \
+ /usr/include/c++/4.9.1/bits/basic_string.h \
+ /usr/include/c++/4.9.1/ext/atomicity.h \
+ /usr/include/c++/4.9.1/i586-poky-linux/bits/gthr.h \
+ /usr/include/c++/4.9.1/i586-poky-linux/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/bits/sched.h /usr/include/bits/time.h \
+ /usr/include/bits/timex.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/bits/setjmp.h \
+ /usr/include/c++/4.9.1/i586-poky-linux/bits/atomic_word.h \
+ /usr/include/c++/4.9.1/bits/basic_string.tcc \
+ src/snappy-1.1.3/snappy-stubs-public.h \
+ /usr/lib/gcc/i586-poky-linux/4.9.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/sys/uio.h /usr/include/sys/types.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h \
+ /usr/include/bits/uio.h src/snappy-1.1.3/snappy-internal.h \
+ src/snappy-1.1.3/snappy-stubs-internal.h src/libbson/src/bson/bson.h \
+ src/libbson/src/bson/bson-compat.h src/libbson/src/bson/bson-config.h \
+ src/libbson/src/bson/bson-macros.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/bits/stdio_lim.h \
+ /usr/include/bits/sys_errlist.h /usr/include/c++/4.9.1/algorithm \
+ /usr/include/c++/4.9.1/utility /usr/include/c++/4.9.1/bits/stl_relops.h \
+ /usr/include/c++/4.9.1/bits/stl_algo.h /usr/include/c++/4.9.1/cstdlib \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib-float.h \
+ /usr/include/c++/4.9.1/bits/algorithmfwd.h \
+ /usr/include/c++/4.9.1/bits/stl_heap.h \
+ /usr/include/c++/4.9.1/bits/stl_tempbuf.h \
+ /usr/include/c++/4.9.1/bits/stl_construct.h \
+ /usr/include/c++/4.9.1/ext/alloc_traits.h /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/getopt.h \
+ /usr/include/sys/time.h /usr/include/errno.h /usr/include/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/lib/gcc/i586-poky-linux/4.9.1/include-fixed/limits.h \
+ /usr/lib/gcc/i586-poky-linux/4.9.1/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ /usr/include/bits/fcntl-linux.h /usr/include/bits/stat.h \
+ /usr/include/sys/stat.h /usr/include/string.h \
+ src/libbson/src/bson/bson-stdint.h /usr/include/inttypes.h \
+ /usr/lib/gcc/i586-poky-linux/4.9.1/include/stdbool.h \
+ src/libbson/src/bson/bson-atomic.h src/libbson/src/bson/bson-context.h \
+ src/libbson/src/bson/bson-types.h src/libbson/src/bson/bson-endian.h \
+ src/libbson/src/bson/bson-clock.h src/libbson/src/bson/bson-decimal128.h \
+ src/libbson/src/bson/bson-error.h src/libbson/src/bson/bson-iter.h \
+ src/libbson/src/bson/bson.h src/libbson/src/bson/bson-json.h \
+ src/libbson/src/bson/bson-keys.h src/libbson/src/bson/bson-md5.h \
+ src/libbson/src/bson/bson-memory.h src/libbson/src/bson/bson-oid.h \
+ src/libbson/src/bson/bson-reader.h src/libbson/src/bson/bson-string.h \
+ src/libbson/src/bson/bson-utf8.h src/libbson/src/bson/bson-value.h \
+ src/libbson/src/bson/bson-version.h \
+ src/libbson/src/bson/bson-version-functions.h \
+ src/libbson/src/bson/bson-writer.h src/libbson/src/bson/bcon.h \
+ /usr/include/assert.h /usr/include/sys/mman.h /usr/include/bits/mman.h \
+ /usr/include/bits/mman-linux.h src/snappy-1.1.3/snappy-sinksource.h \
+ /usr/include/c++/4.9.1/vector \
+ /usr/include/c++/4.9.1/bits/stl_uninitialized.h \
+ /usr/include/c++/4.9.1/bits/stl_vector.h \
+ /usr/include/c++/4.9.1/bits/stl_bvector.h \
+ /usr/include/c++/4.9.1/bits/vector.tcc
+
+/usr/include/stdc-predef.h:
+
+src/snappy-1.1.3/snappy.h:
+
+/usr/lib/gcc/i586-poky-linux/4.9.1/include/stddef.h:
+
+/usr/include/c++/4.9.1/string:
+
+/usr/include/c++/4.9.1/i586-poky-linux/bits/c++config.h:
+
+/usr/include/c++/4.9.1/i586-poky-linux/bits/os_defines.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/c++/4.9.1/i586-poky-linux/bits/cpu_defines.h:
+
+/usr/include/c++/4.9.1/bits/stringfwd.h:
+
+/usr/include/c++/4.9.1/bits/memoryfwd.h:
+
+/usr/include/c++/4.9.1/bits/char_traits.h:
+
+/usr/include/c++/4.9.1/bits/stl_algobase.h:
+
+/usr/include/c++/4.9.1/bits/functexcept.h:
+
+/usr/include/c++/4.9.1/bits/exception_defines.h:
+
+/usr/include/c++/4.9.1/bits/cpp_type_traits.h:
+
+/usr/include/c++/4.9.1/ext/type_traits.h:
+
+/usr/include/c++/4.9.1/ext/numeric_traits.h:
+
+/usr/include/c++/4.9.1/bits/stl_pair.h:
+
+/usr/include/c++/4.9.1/bits/move.h:
+
+/usr/include/c++/4.9.1/bits/concept_check.h:
+
+/usr/include/c++/4.9.1/bits/stl_iterator_base_types.h:
+
+/usr/include/c++/4.9.1/bits/stl_iterator_base_funcs.h:
+
+/usr/include/c++/4.9.1/debug/debug.h:
+
+/usr/include/c++/4.9.1/bits/stl_iterator.h:
+
+/usr/include/c++/4.9.1/bits/ptr_traits.h:
+
+/usr/include/c++/4.9.1/bits/predefined_ops.h:
+
+/usr/include/c++/4.9.1/bits/postypes.h:
+
+/usr/include/c++/4.9.1/cwchar:
+
+/usr/include/wchar.h:
+
+/usr/include/stdio.h:
+
+/usr/lib/gcc/i586-poky-linux/4.9.1/include/stdarg.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/c++/4.9.1/bits/allocator.h:
+
+/usr/include/c++/4.9.1/i586-poky-linux/bits/c++allocator.h:
+
+/usr/include/c++/4.9.1/ext/new_allocator.h:
+
+/usr/include/c++/4.9.1/new:
+
+/usr/include/c++/4.9.1/exception:
+
+/usr/include/c++/4.9.1/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/4.9.1/bits/localefwd.h:
+
+/usr/include/c++/4.9.1/i586-poky-linux/bits/c++locale.h:
+
+/usr/include/c++/4.9.1/clocale:
+
+/usr/include/locale.h:
+
+/usr/include/bits/locale.h:
+
+/usr/include/c++/4.9.1/iosfwd:
+
+/usr/include/c++/4.9.1/cctype:
+
+/usr/include/ctype.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/bits/byteswap-16.h:
+
+/usr/include/c++/4.9.1/bits/ostream_insert.h:
+
+/usr/include/c++/4.9.1/bits/cxxabi_forced.h:
+
+/usr/include/c++/4.9.1/bits/stl_function.h:
+
+/usr/include/c++/4.9.1/backward/binders.h:
+
+/usr/include/c++/4.9.1/bits/range_access.h:
+
+/usr/include/c++/4.9.1/bits/basic_string.h:
+
+/usr/include/c++/4.9.1/ext/atomicity.h:
+
+/usr/include/c++/4.9.1/i586-poky-linux/bits/gthr.h:
+
+/usr/include/c++/4.9.1/i586-poky-linux/bits/gthr-default.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/time.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/bits/timex.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/c++/4.9.1/i586-poky-linux/bits/atomic_word.h:
+
+/usr/include/c++/4.9.1/bits/basic_string.tcc:
+
+src/snappy-1.1.3/snappy-stubs-public.h:
+
+/usr/lib/gcc/i586-poky-linux/4.9.1/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/sys/uio.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/uio.h:
+
+src/snappy-1.1.3/snappy-internal.h:
+
+src/snappy-1.1.3/snappy-stubs-internal.h:
+
+src/libbson/src/bson/bson.h:
+
+src/libbson/src/bson/bson-compat.h:
+
+src/libbson/src/bson/bson-config.h:
+
+src/libbson/src/bson/bson-macros.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/c++/4.9.1/algorithm:
+
+/usr/include/c++/4.9.1/utility:
+
+/usr/include/c++/4.9.1/bits/stl_relops.h:
+
+/usr/include/c++/4.9.1/bits/stl_algo.h:
+
+/usr/include/c++/4.9.1/cstdlib:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/c++/4.9.1/bits/algorithmfwd.h:
+
+/usr/include/c++/4.9.1/bits/stl_heap.h:
+
+/usr/include/c++/4.9.1/bits/stl_tempbuf.h:
+
+/usr/include/c++/4.9.1/bits/stl_construct.h:
+
+/usr/include/c++/4.9.1/ext/alloc_traits.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/sys/time.h:
+
+/usr/include/errno.h:
+
+/usr/include/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/lib/gcc/i586-poky-linux/4.9.1/include-fixed/limits.h:
+
+/usr/lib/gcc/i586-poky-linux/4.9.1/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/usr/include/bits/xopen_lim.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/bits/fcntl.h:
+
+/usr/include/bits/fcntl-linux.h:
+
+/usr/include/bits/stat.h:
+
+/usr/include/sys/stat.h:
+
+/usr/include/string.h:
+
+src/libbson/src/bson/bson-stdint.h:
+
+/usr/include/inttypes.h:
+
+/usr/lib/gcc/i586-poky-linux/4.9.1/include/stdbool.h:
+
+src/libbson/src/bson/bson-atomic.h:
+
+src/libbson/src/bson/bson-context.h:
+
+src/libbson/src/bson/bson-types.h:
+
+src/libbson/src/bson/bson-endian.h:
+
+src/libbson/src/bson/bson-clock.h:
+
+src/libbson/src/bson/bson-decimal128.h:
+
+src/libbson/src/bson/bson-error.h:
+
+src/libbson/src/bson/bson-iter.h:
+
+src/libbson/src/bson/bson.h:
+
+src/libbson/src/bson/bson-json.h:
+
+src/libbson/src/bson/bson-keys.h:
+
+src/libbson/src/bson/bson-md5.h:
+
+src/libbson/src/bson/bson-memory.h:
+
+src/libbson/src/bson/bson-oid.h:
+
+src/libbson/src/bson/bson-reader.h:
+
+src/libbson/src/bson/bson-string.h:
+
+src/libbson/src/bson/bson-utf8.h:
+
+src/libbson/src/bson/bson-value.h:
+
+src/libbson/src/bson/bson-version.h:
+
+src/libbson/src/bson/bson-version-functions.h:
+
+src/libbson/src/bson/bson-writer.h:
+
+src/libbson/src/bson/bcon.h:
+
+/usr/include/assert.h:
+
+/usr/include/sys/mman.h:
+
+/usr/include/bits/mman.h:
+
+/usr/include/bits/mman-linux.h:
+
+src/snappy-1.1.3/snappy-sinksource.h:
+
+/usr/include/c++/4.9.1/vector:
+
+/usr/include/c++/4.9.1/bits/stl_uninitialized.h:
+
+/usr/include/c++/4.9.1/bits/stl_vector.h:
+
+/usr/include/c++/4.9.1/bits/stl_bvector.h:
+
+/usr/include/c++/4.9.1/bits/vector.tcc:

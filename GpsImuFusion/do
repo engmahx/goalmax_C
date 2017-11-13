@@ -1,0 +1,4 @@
+#!/bin/bash -x
+g++ -c -std=c++11 -fPIC -Wall -g basicMatrix.cpp -o basicMatrix.o
+g++ -c -std=c++11 -fPIC -Wall -g GpsImuKalman.cpp -o GpsImuKalman.o
+g++ -shared -Wl,-soname,GpsImuFusion.so -o GpsImuFusion.so basicMatrix.o GpsImuKalman.o

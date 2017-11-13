@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/goalmaxServer.dir/home/goalmax/goalmaxServer.cpp.o  -o goalmaxServer -rdynamic /home/goalmax/goalmax.so /usr/local/lib/libpaho-mqtt3c.so.1 /usr/local/lib/libmongoc-1.0.so /usr/local/lib/libbson-1.0.so -lssl -lcrypto -lrt -Wl,-rpath,/home/goalmax:/usr/local/lib 

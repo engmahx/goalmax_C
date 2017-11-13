@@ -1,0 +1,5 @@
+#!/bin/bash -x
+g++ -c -std=c++11 -fPIC -Wall -g heart.cpp -o heart.o
+g++ -c -std=c++11 -fPIC -Wall -g SparkFunADS1015.cpp -o SparkFunADS1015.o
+g++ -shared -Wl,-soname,heartRate.so -o heartRate.so -lmraa heart.o SparkFunADS1015.o
+#python test1.py

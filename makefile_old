@@ -1,0 +1,250 @@
+# makefile for rtkrcv
+
+BINDIR = /usr/local/bin
+SRC    = RtkLib/src
+RTKRCVSRC = RtkLib/app/rtkrcv
+#GSRC   = /home/goalmax
+OBJ = objects
+
+# for beagleboard
+#CTARGET= -mfpu=neon -mfloat-abi=softfp -ffast-math
+CTARGET= -DENAGLO -DENAQZS -DENACMP -DNFREQ=3
+
+CFLAGS = -Wall -O3 -ansi -pedantic -Wno-unused-but-set-variable -I$(SRC) -I.. -DTRACE $(CTARGET) -g
+LDLIBS  = -lm -lrt -lpthread -lstdc++
+
+CXXFLAGS = -std=c++11 -fPIC -Wall -g -pthread
+
+all        : goalmax
+goalmax     : goalmax.o
+goalmax     : $(OBJ)/rtkrcv.o $(OBJ)/vt.o $(OBJ)/rtkcmn.o $(OBJ)/rtksvr.o $(OBJ)/rtkpos.o $(OBJ)/geoid.o $(OBJ)/solution.o $(OBJ)/lambda.o
+goalmax     : $(OBJ)/sbas.o $(OBJ)/stream.o $(OBJ)/rcvraw.o $(OBJ)/rtcm.o $(OBJ)/preceph.o $(OBJ)/options.o $(OBJ)/pntpos.o $(OBJ)/ppp.o $(OBJ)/ppp_ar.o
+goalmax     : $(OBJ)/novatel.o $(OBJ)/ublox.o $(OBJ)/ss2.o $(OBJ)/crescent.o $(OBJ)/skytraq.o $(OBJ)/gw10.o $(OBJ)/javad.o $(OBJ)/nvs.o $(OBJ)/binex.o
+goalmax     : $(OBJ)/rt17.o $(OBJ)/ephemeris.o $(OBJ)/rinex.o $(OBJ)/ionex.o $(OBJ)/rtcm2.o $(OBJ)/rtcm3.o $(OBJ)/rtcm3e.o $(OBJ)/qzslex.o
+
+goalmax     : RTIMULibDrive.o
+goalmax     : RTMath.o RTIMUHal.o RTFusion.o RTFusionKalman4.o RTFusionRTQF.o 
+goalmax     : RTIMUSettings.o RTIMUAccelCal.o RTIMUMagCal.o RTIMU.o RTIMUNull.o 
+goalmax     : RTIMUMPU9150.o RTIMUMPU9250.o RTIMUGD20HM303D.o RTIMUGD20M303DLHC.o 
+goalmax     : RTIMUGD20HM303DLHC.o RTIMULSM9DS0.o RTIMULSM9DS1.o RTIMUBMX055.o RTIMUBNO055.o 
+goalmax     : RTPressure.o RTPressureBMP180.o RTPressureLPS25H.o RTPressureMS5611.o 
+goalmax     : RTPressureMS5637.o
+
+$(OBJ)/rtkrcv.o   : $(RTKRCVSRC)/rtkrcv.c
+	$(CC) -c $(CFLAGS) $(RTKRCVSRC)/rtkrcv.c -o $(OBJ)/rtkrcv.o
+$(OBJ)/vt.o       : $(RTKRCVSRC)/vt.c
+	$(CC) -c $(CFLAGS) $(RTKRCVSRC)/vt.c -o $(OBJ)/vt.o
+$(OBJ)/rtkcmn.o   : $(SRC)/rtkcmn.c
+	$(CC) -c $(CFLAGS) $(SRC)/rtkcmn.c -o $(OBJ)/rtkcmn.o
+$(OBJ)/rtksvr.o   : $(SRC)/rtksvr.c
+	$(CC) -c $(CFLAGS) $(SRC)/rtksvr.c -o $(OBJ)/rtksvr.o
+$(OBJ)/rtkpos.o   : $(SRC)/rtkpos.c 
+	$(CC) -c $(CFLAGS) $(SRC)/rtkpos.c -o $(OBJ)/rtkpos.o
+$(OBJ)/geoid.o    : $(SRC)/geoid.c
+	$(CC) -c $(CFLAGS) $(SRC)/geoid.c -o $(OBJ)/geoid.o
+$(OBJ)/solution.o : $(SRC)/solution.c
+	$(CC) -c $(CFLAGS) $(SRC)/solution.c -o $(OBJ)/solution.o
+$(OBJ)/lambda.o   : $(SRC)/lambda.c
+	$(CC) -c $(CFLAGS) $(SRC)/lambda.c -o $(OBJ)/lambda.o
+$(OBJ)/sbas.o     : $(SRC)/sbas.c
+	$(CC) -c $(CFLAGS) $(SRC)/sbas.c -o $(OBJ)/sbas.o
+$(OBJ)/stream.o   : $(SRC)/stream.c
+	$(CC) -c $(CFLAGS) $(SRC)/stream.c -o $(OBJ)/stream.o
+$(OBJ)/rcvraw.o : $(SRC)/rcvraw.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcvraw.c -o $(OBJ)/rcvraw.o
+$(OBJ)/rtcm.o     : $(SRC)/rtcm.c
+	$(CC) -c $(CFLAGS) $(SRC)/rtcm.c -o $(OBJ)/rtcm.o 
+$(OBJ)/rtcm2.o    : $(SRC)/rtcm2.c
+	$(CC) -c $(CFLAGS) $(SRC)/rtcm2.c -o $(OBJ)/rtcm2.o
+$(OBJ)/rtcm3.o    : $(SRC)/rtcm3.c
+	$(CC) -c $(CFLAGS) $(SRC)/rtcm3.c -o $(OBJ)/rtcm3.o
+$(OBJ)/rtcm3e.o   : $(SRC)/rtcm3e.c
+	$(CC) -c $(CFLAGS) $(SRC)/rtcm3e.c -o $(OBJ)/rtcm3e.o
+$(OBJ)/preceph.o  : $(SRC)/preceph.c
+	$(CC) -c $(CFLAGS) $(SRC)/preceph.c -o $(OBJ)/preceph.o
+$(OBJ)/options.o  : $(SRC)/options.c
+	$(CC) -c $(CFLAGS) $(SRC)/options.c -o $(OBJ)/options.o
+$(OBJ)/pntpos.o   : $(SRC)/pntpos.c
+	$(CC) -c $(CFLAGS) $(SRC)/pntpos.c -o $(OBJ)/pntpos.o
+$(OBJ)/ppp.o      : $(SRC)/ppp.c
+	$(CC) -c $(CFLAGS) $(SRC)/ppp.c -o $(OBJ)/ppp.o
+$(OBJ)/ppp_ar.o   : $(SRC)/ppp_ar.c
+	$(CC) -c $(CFLAGS) $(SRC)/ppp_ar.c -o $(OBJ)/ppp_ar.o
+$(OBJ)/novatel.o  : $(SRC)/rcv/novatel.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/novatel.c -o $(OBJ)/novatel.o
+$(OBJ)/ublox.o    : $(SRC)/rcv/ublox.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/ublox.c -o $(OBJ)/ublox.o
+$(OBJ)/ss2.o      : $(SRC)/rcv/ss2.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/ss2.c -o $(OBJ)/ss2.o
+$(OBJ)/crescent.o : $(SRC)/rcv/crescent.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/crescent.c -o $(OBJ)/crescent.o
+$(OBJ)/skytraq.o  : $(SRC)/rcv/skytraq.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/skytraq.c -o $(OBJ)/skytraq.o
+$(OBJ)/gw10.o     : $(SRC)/rcv/gw10.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/gw10.c -o $(OBJ)/gw10.o
+$(OBJ)/javad.o    : $(SRC)/rcv/javad.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/javad.c -o $(OBJ)/javad.o
+$(OBJ)/nvs.o      : $(SRC)/rcv/nvs.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/nvs.c -o $(OBJ)/nvs.o
+$(OBJ)/binex.o    : $(SRC)/rcv/binex.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/binex.c -o $(OBJ)/binex.o
+$(OBJ)/rt17.o     : $(SRC)/rcv/rt17.c
+	$(CC) -c $(CFLAGS) $(SRC)/rcv/rt17.c -o $(OBJ)/rt17.o
+$(OBJ)/ephemeris.o: $(SRC)/ephemeris.c
+	$(CC) -c $(CFLAGS) $(SRC)/ephemeris.c -o $(OBJ)/ephemeris.o
+$(OBJ)/rinex.o    : $(SRC)/rinex.c
+	$(CC) -c $(CFLAGS) $(SRC)/rinex.c -o $(OBJ)/rinex.o
+$(OBJ)/ionex.o    : $(SRC)/ionex.c
+	$(CC) -c $(CFLAGS) $(SRC)/ionex.c -o $(OBJ)/ionex.o
+$(OBJ)/qzslex.o   : $(SRC)/qzslex.c
+	$(CC) -c $(CFLAGS) $(SRC)/qzslex.c -o $(OBJ)/qzslex.o
+goalmax.o  : goalmax.cpp
+	$(CXX) -c $(CXXFLAGS) goalmax.cpp -o goalmax.o
+
+$(OBJ)/rtkrcv.o   : $(SRC)/rtklib.h  $(RTKRCVSRC)/vt.h
+$(OBJ)/rtkcmn.o   : $(SRC)/rtklib.h
+$(OBJ)/rtksvr.o   : $(SRC)/rtklib.h
+$(OBJ)/rtkpos.o   : $(SRC)/rtklib.h
+$(OBJ)/geoid.o    : $(SRC)/rtklib.h
+$(OBJ)/solution.o : $(SRC)/rtklib.h
+$(OBJ)/lambda.o   : $(SRC)/rtklib.h
+$(OBJ)/sbas.o     : $(SRC)/rtklib.h
+$(OBJ)/rcvraw.o   : $(SRC)/rtklib.h
+$(OBJ)/rtcm.o     : $(SRC)/rtklib.h
+$(OBJ)/rtcm2.o    : $(SRC)/rtklib.h
+$(OBJ)/rtcm3.o    : $(SRC)/rtklib.h
+$(OBJ)/rtcm3e.o   : $(SRC)/rtklib.h
+$(OBJ)/preceph.o  : $(SRC)/rtklib.h
+$(OBJ)/options.o  : $(SRC)/rtklib.h
+$(OBJ)/pntpos.o   : $(SRC)/rtklib.h
+$(OBJ)/ppp.o      : $(SRC)/rtklib.h
+$(OBJ)/novatel.o  : $(SRC)/rtklib.h
+$(OBJ)/ublox.o    : $(SRC)/rtklib.h
+$(OBJ)/ss2.o      : $(SRC)/rtklib.h
+$(OBJ)/crescent.o : $(SRC)/rtklib.h
+$(OBJ)/skytraq.o  : $(SRC)/rtklib.h
+$(OBJ)/gw10.o     : $(SRC)/rtklib.h
+$(OBJ)/javad.o    : $(SRC)/rtklib.h
+$(OBJ)/nvs.o      : $(SRC)/rtklib.h
+$(OBJ)/binex.o    : $(SRC)/rtklib.h
+$(OBJ)/rt17.o     : $(SRC)/rtklib.h
+$(OBJ)/ephemeris.o: $(SRC)/rtklib.h
+$(OBJ)/rinex.o    : $(SRC)/rtklib.h
+$(OBJ)/ionex.o    : $(SRC)/rtklib.h
+$(OBJ)/qzslex.o   : $(SRC)/rtklib.h
+goalmax.o  : goalmax.h
+
+
+
+DEFINES       	=
+IMUCFLAGS		= -pipe -O2 -Wall -W $(DEFINES)
+INCPATH       	= -I. -I$(RTIMULIBPATH)
+
+OBJECTS_DIR  = objects/
+
+RTIMULIBPATH = IMU/RTIMULib
+RTIMUPATH = IMU/Linux/RTIMULibDrive
+
+DEPS    = $(RTIMULIBPATH)/RTMath.h \
+    $(RTIMULIBPATH)/RTIMULib.h \
+    $(RTIMULIBPATH)/RTIMULibDefs.h \
+    $(RTIMULIBPATH)/RTIMUHal.h \
+    $(RTIMULIBPATH)/RTFusion.h \
+    $(RTIMULIBPATH)/RTFusionKalman4.h \
+    $(RTIMULIBPATH)/RTFusionRTQF.h \
+    $(RTIMULIBPATH)/RTIMUSettings.h \
+    $(RTIMULIBPATH)/RTIMUAccelCal.h \
+    $(RTIMULIBPATH)/RTIMUMagCal.h \
+    $(RTIMULIBPATH)/RTIMUCalDefs.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMU.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMUNull.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMUMPU9150.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMUMPU9250.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20HM303D.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20M303DLHC.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20HM303DLHC.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMULSM9DS0.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMULSM9DS1.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMUBMX055.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTIMUBNO055.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTPressure.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTPressureBMP180.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTPressureLPS25H.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTPressureMS5611.h \
+    $(RTIMULIBPATH)/IMUDrivers/RTPressureMS5637.h 
+
+
+RTMath.o : $(RTIMULIBPATH)/RTMath.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTMath.cpp
+RTIMULib.o : $(RTIMULIBPATH)/RTIMULib.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTIMULib.cpp
+RTIMULibDefs.o : $(RTIMULIBPATH)/RTIMULibDefs.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTIMULibDefs.cpp
+RTIMUHal.o : $(RTIMULIBPATH)/RTIMUHal.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTIMUHal.cpp
+RTFusion.o : $(RTIMULIBPATH)/RTFusion.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTFusion.cpp
+RTFusionKalman4.o : $(RTIMULIBPATH)/RTFusionKalman4.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTFusionKalman4.cpp
+RTFusionRTQF.o : $(RTIMULIBPATH)/RTFusionRTQF.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTFusionRTQF.cpp
+RTIMUSettings.o : $(RTIMULIBPATH)/RTIMUSettings.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTIMUSettings.cpp
+RTIMUAccelCal.o : $(RTIMULIBPATH)/RTIMUAccelCal.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTIMUAccelCal.cpp
+RTIMUMagCal.o : $(RTIMULIBPATH)/RTIMUMagCal.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTIMUMagCal.cpp
+RTIMUCalDefs.o : $(RTIMULIBPATH)/RTIMUCalDefs.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/RTIMUCalDefs.cpp
+RTIMU.o : $(RTIMULIBPATH)/IMUDrivers/RTIMU.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMU.cpp
+RTIMUNull.o : $(RTIMULIBPATH)/IMUDrivers/RTIMUNull.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMUNull.cpp
+RTIMUMPU9150.o : $(RTIMULIBPATH)/IMUDrivers/RTIMUMPU9150.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMUMPU9150.cpp
+RTIMUMPU9250.o : $(RTIMULIBPATH)/IMUDrivers/RTIMUMPU9250.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMUMPU9250.cpp
+RTIMUGD20HM303D.o : $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20HM303D.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20HM303D.cpp
+RTIMUGD20M303DLHC.o : $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20M303DLHC.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20M303DLHC.cpp
+RTIMUGD20HM303DLHC.o : $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20HM303DLHC.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMUGD20HM303DLHC.cpp
+RTIMULSM9DS0.o : $(RTIMULIBPATH)/IMUDrivers/RTIMULSM9DS0.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMULSM9DS0.cpp
+RTIMULSM9DS1.o : $(RTIMULIBPATH)/IMUDrivers/RTIMULSM9DS1.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMULSM9DS1.cpp
+RTIMUBMX055.o : $(RTIMULIBPATH)/IMUDrivers/RTIMUBMX055.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMUBMX055.cpp
+RTIMUBNO055.o : $(RTIMULIBPATH)/IMUDrivers/RTIMUBNO055.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTIMUBNO055.cpp
+RTPressure.o : $(RTIMULIBPATH)/IMUDrivers/RTPressure.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTPressure.cpp
+RTPressureBMP180.o : $(RTIMULIBPATH)/IMUDrivers/RTPressureBMP180.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTPressureBMP180.cpp
+RTPressureLPS25H.o : $(RTIMULIBPATH)/IMUDrivers/RTPressureLPS25H.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTPressureLPS25H.cpp
+RTPressureMS5611.o : $(RTIMULIBPATH)/IMUDrivers/RTPressureMS5611.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTPressureMS5611.cpp
+RTPressureMS5637.o : $(RTIMULIBPATH)/IMUDrivers/RTPressureMS5637.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMULIBPATH)/IMUDrivers/RTPressureMS5637.cpp
+
+RTIMULibDrive.o : $(RTIMUPATH)/RTIMULibDrive.cpp $(DEPS)
+	$(CXX) -c $(IMUCFLAGS) $(INCPATH) $(RTIMUPATH)/RTIMULibDrive.cpp 
+
+
+install:
+	cp rtkrcv $(BINDIR)
+
+test1:
+	./rtkrcv -t 4 -m 52001 -t 4
+
+test2:
+	./rtkrcv -p 2105 -m 52001
+
+test3:
+	./rtkrcv -o ../rtk_pb.conf
+
+clean:
+	rm -f rtkrcv rtkrcv.exe rtkrcv.nav *.o *.out *.trace
+
